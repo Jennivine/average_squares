@@ -50,17 +50,20 @@ def convert_numbers(list_of_strings):
     return [float(number_string) for number_string in all_numbers]
 
 
+
 if __name__ == "__main__":
     from argparse import ArgumentParser
      
     parser = ArgumentParser(description="weighted average of squares")
     parser.add_argument('numbers', nargs='+', type=float)
+    parser.add_argument("--weights", nargs='+', type=float)
     arguments = parser.parse_args()
     
     
     #numbers_strings = ["1","2","4"]    
     numbers = arguments.numbers
+    weights = arguments.weights
     
-    result = average_of_squares(numbers)
+    result = average_of_squares(numbers, weights)
     
     print(result)
